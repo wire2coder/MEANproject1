@@ -6,11 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-
   "dependencies": {
-    "express":"*",
-    "mongoose":"*",
-    "body-parser":"*"
+    "body-parser": "*",
+    "express": "*",
+    "mongoose": "^4.6.0"
   },
   "author": "Jimmy Johns",
   "license": "ISC"
