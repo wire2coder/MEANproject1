@@ -1,13 +1,13 @@
 // 9/5
 
+//var invoicemodel = require('../models/invoicemodel');
+
 var express = require('express');
 router = express.Router();
 
-// root of /api/invoices
+// localhost:3000/api/invoices
 router.get('/', function (req, res) {
-    res.json({
-        "name": "ksdlfjdlsfj"
-    });
+
 });
 
 module.exports = router;
