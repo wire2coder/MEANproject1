@@ -11,6 +11,7 @@ var invoices = require('./routes/invoices.js');
 mongoose.connect('mongodb://localhost/invoicer');
 var db = mongoose.connection;
 
+// using index.html in client folder
 app.use(express.static(__dirname + '/client'));
 app.use(bodyParser.json());
 

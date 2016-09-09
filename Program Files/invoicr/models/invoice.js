@@ -2,39 +2,39 @@ var mongoose = require('mongoose');
 
 // Invoice Schema
 var invoiceSchema = mongoose.Schema({
-	customer:{
+	customer: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Customer'
+        ref: 'Customer'
 	},
-	service:{
-		type: String,
-		required: true
-	},
-	price:{
+	service: {
 		type: String
+	},
+	price: {
+		type: Number
 	},
 	due:{
 		type: String
 	},
-	status:{
+	status: {
 		type: String
 	},
-	createdAt:{
-		type: Date,
-		default: Date.now
-	},
+    createdAt: {
+        type: Date, 
+        default: Date.now
+    }
 });
 
 var Invoice = module.exports = mongoose.model('Invoice', invoiceSchema);
 
 // Get Invoices
-module.exports.getInvoices= function(callback, limit){
-	Invoice.find(callback).limit(limit).sort([['createdAt', 'descending']]);
+module.exports.getInvoices = function(callback, limit){
+	Invoice.find(callback).limit(limit).populate('customer').sort([['createdAt', 'ascending']]);
 }
 
-// Get Invoice
+// Get Single Invoice
 module.exports.getInvoiceById = function(id, callback){
-	Invoice.findById(id, callback);
+	var query = {_id: id};
+	Invoice.findOne(query, callback).populate('customer');
 }
 
 // Add Invoice
@@ -65,4 +65,10 @@ module.exports.updateInvoice = function(id, invoice, options, callback){
 module.exports.removeInvoice = function(id, callback){
 	var query = {_id: id};
 	Invoice.remove(query, callback);
+}
+
+// Get Customer Invoices
+module.exports.getCustomerInvoices = function(customer_id, callback, limit){
+	var query = {customer: customer_id};
+	Invoice.find(query, callback).limit(limit).populate('customer').sort([['createdAt', 'ascending']]);
 }
