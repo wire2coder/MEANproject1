@@ -10,4 +10,3 @@ myApp.controller('DashboardController', ['$scope', '$http', '$location',
     }
 ]);
 
-// testing GIT tool from inside webstorm
