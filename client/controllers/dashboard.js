@@ -9,3 +9,5 @@ myApp.controller('DashboardController', ['$scope', '$http', '$location',
         console.log('Dashboard Controller Initialized.');
     }
 ]);
+
+// testing GIT tool from inside webstorm
