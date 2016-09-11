@@ -17,7 +17,9 @@ myApp.controller('CustomersController', ['$scope', '$http', '$location', '$route
         $scope.getCustomer = function () {
             var id = $routeParams.id;
 
-            $http.get('/api/customer/' + id).success(function (response) {
+            $http.get('/api/customers/' + id).success(function (response) {
+
+                console.log(response);
                 $scope.customer = response;
             });
         };

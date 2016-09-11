@@ -10,7 +10,7 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'views/customers.html'
         })
 
-        .when('/customers/details/', {
+        .when('/customers/details/:id', {
             controller: 'CustomersController', // controllers/customerscontroller.js
             templateUrl: 'views/customers_details.html'
         })
