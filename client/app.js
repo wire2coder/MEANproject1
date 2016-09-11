@@ -10,6 +10,11 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'views/customers.html'
         })
 
+        .when('/customers/details/', {
+            controller: 'CustomersController', // controllers/customerscontroller.js
+            templateUrl: 'views/customers_details.html'
+        })
+
         .when('/invoices', {
             controller: 'InvoicesController',
             templateUrl: 'views/invoices.html'

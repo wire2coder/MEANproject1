@@ -1,0 +1,45 @@
+<div ng-init="getCustomer(customer._id)">
+    <img class="pull-right img-small" src="{{customers.logo_url}}">
+    <div class="clearfix"></div>
+
+    <h2 class="sub-header">
+        {{customer.first_name}} {{customer.last_name}}
+    </h2>
+
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Company: </strong></li>
+        <li class="list-group-item"><strong>Email: </strong></li>
+        <li class="list-group-item"><strong>Phone: </strong></li>
+        <li class="list-group-item"><strong>Street Address: </strong></li>
+        <li class="list-group-item"><strong>City: </strong></li>
+        <li class="list-group-item"><strong>State: </strong></li>
+        <li class="list-group-item"><strong>Zip: </strong></li>
+    </ul>
+   <br>
+
+   <h3>Customer Invoices</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Service</th>
+                <th>Price</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="asdf in customer_invoices">
+                <td>{{asdf._id}}</td>
+                <td>{{asdf.service}}</td>
+                <td>{{asdf.price}}</td>
+                <td>{{asdf.status}}</td>
+                <td>
+                    <a href="/#/invoices/details/{{asdf._id}}" class="btn btn-primary">Details</a>
+                    <a href="/#/invoices/edit/{{asdf._id}}" class="btn btn-default">Edit</a>
+                    <a href="" id="deleteCustomer" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

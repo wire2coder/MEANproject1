@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title> Invoicer | Customers </title>
-</head>
-<body>
-    THIS IS CUSTOMERS
-</body>
-</html>
+<h2 class="sub-header">Customers</h2>
+<div class="table-responsive" ng-init="getCustomers()">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="asdf in customers">
+            <td> {{asdf._id}}</td>
+
+            <td> {{asdf.first_name}} {{asdf.last_name}} </td>
+            <td> {{asdf.company}} </td>
+            <td> {{asdf.email}} </td>
+            <td>
+                <a href="/#/customers/details/{{asdf._id}}" class="btn btn-primary">Detail</a>
+                <a href="/#/customers/edit/{{asdf._id}}" class="btn btn-default">Edit</a>
+                <a href="" id="deleteCustomer" ng-click="deleteCustomer(asdf._id)" class="btn btn-danger">Delete</a>
+            </td>
+
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
