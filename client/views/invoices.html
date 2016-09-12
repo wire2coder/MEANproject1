@@ -1,5 +1,36 @@
-<div ng-init="getInvoices()">
+<h2 class="sub-header">Invoices</h2>
 
-    {{invoices._id}}
+<div class="table-responsive" ng-init="getInvoices()">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Customer</th>
+                <th>Service</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="asdf in invoices">
+                <td> {{asdf._id}} </td>
+                <td></td>
+                <td> {{asdf.service}} </td>
+                <td> {{asdf.price}} </td>
+                <td> {{asdf.status}} </td>
+                <td>
+                    <a href="/#/invoices/details/{{invoice_id}}" class="btn btn-primary">Details</a>
+                    <a href="/#/invoices/edit/{{invoice_id}}" class="btn btn-default">Edit</a>
+                    <button class="btn btn-danger">Delete </button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
 
 </div>
+
+
