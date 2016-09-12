@@ -19,10 +19,10 @@ var invoiceSchema = mongoose.Schema({
 var Invoice = module.exports = mongoose.model('Invoice', invoiceSchema);
 
 // Get Invoices
-module.exports.getInvoices = function (callback, limit) {
+module.exports.getInvoices = function (callback) {
 
     // mongoose method call
-    Invoice.find(callback).limit(limit).sort(['createdAt', 'ascending']);
+    Invoice.find(callback);
 };
 
 // Get single invoice
@@ -32,7 +32,7 @@ module.exports.getInvoice = function (callback, limit) {
 };
 
 // Add an invoice
-modle.exports.addInvoice = function (invoice, callback) {
+module.exports.addInvoice = function (invoice, callback) {
     var add = {
         customer: invoice.customer_id,
         service: invoice.service,
