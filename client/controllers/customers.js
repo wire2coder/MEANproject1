@@ -23,4 +23,21 @@ myApp.controller('CustomersController', ['$scope', '$http', '$location', '$route
                 $scope.customer = response;
             });
         };
+
+        $scope.addCustomer = function () {
+            console.log('ello!');
+            console.log(customer.first_name);
+            console.log(customer.last_name);
+        };
+
+        $scope.getCustomerInvoices = function() {
+            var id = $routeParams.id;
+
+            $http.get('/api/invoices/customer/' + id)
+                .success(
+                function(response) {
+                    $scope.customer_invoices = response;
+                }
+            )
+        }
 }]);

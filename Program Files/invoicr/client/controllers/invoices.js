@@ -1,7 +1,6 @@
 var myApp = angular.module("myApp");
 
-myApp.controller('InvoicesController', ['$scope', '$http','$location','$routeParams',
-    function($scope, $http,$location, $routeParams){
+myApp.controller('InvoicesController', ['$scope', '$http','$location','$routeParams', function($scope, $http,$location, $routeParams){
 	console.log('Invoice Controller Initialized...');
 
 	$scope.getInvoices = function(){

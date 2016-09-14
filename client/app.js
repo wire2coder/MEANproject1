@@ -15,9 +15,19 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'views/customers_details.html'
         })
 
+        .when('/customers/add', {
+            controller: 'CustomersController',
+            templateUrl: 'views/add_customer.html'
+        })
+
         .when('/invoices', {
             controller: 'InvoicesController',
             templateUrl: 'views/invoices.html'
+        })
+
+        .when('/invoices/add', {
+            controller: 'InvoicesController',
+            templateUrl: 'views/add_invoice.html'
         })
 
         .otherwise({

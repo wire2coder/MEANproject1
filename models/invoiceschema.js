@@ -44,3 +44,10 @@ module.exports.addInvoice = function (invoice, callback) {
     // mongoose method call
     Invoice.create(add, callback);
 };
+
+// Get customer invoices
+module.exports.getCustomerInvoices = function (customer_id, callback, limit) {
+    var query = {customer: customer_id};
+
+    Invoice.find(query, callback);
+};

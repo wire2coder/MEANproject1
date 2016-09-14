@@ -33,8 +33,8 @@ router.get('/:id', function (req, res) {
     })
 });
 
-// localhost:3000/api/invoices
 // Add an invoice
+// localhost:3000/api/invoices
 router.post('/', function (req, res) {
     var invoice = req.body;
     Invoice.addInvoice(invoice, function (err, invoice) {
@@ -43,6 +43,21 @@ router.post('/', function (req, res) {
         }
         res.json(invoice);
     });
+});
+
+// localhost:3000/api/invoices
+// Get all invoices for a single customer
+router.get('/customer/:customer_id', function (req, res) {
+    var customer_id = req.params.customer_id;
+
+    Invoice.getCustomerInvoices(customer_id,
+        function (err, invoices) {
+            if (err) {
+                res.send(err);
+            }
+
+            res.json(invoices);
+        })
 });
 
 module.exports = router;
