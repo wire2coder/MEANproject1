@@ -10,7 +10,11 @@ var customerSchema = mongoose.Schema({
     , "logo_url": {type: String}
     , "email": {type: String, required: true}
     , "phone": {type: String}
-    , "address": {street: String, city: String, state: String, zip: String}
+    , "address": {
+        street: String,
+        city: String,
+        state: String,
+        zip: String}
     , "createdAt": {type: Date, default: Date.now()}
 });
 

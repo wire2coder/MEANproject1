@@ -36,15 +36,20 @@ router.post('/', function (req, res) {
     var customer = req.body;
 
     // run addCustomer in customerschema.js
+
     Customer.addCustomer(customer, function (err, customer) {
         if (err) {
             res.send(err);
         }
         res.json(customer);
     });
+
+
+    console.log(customer);
 });
 
 // Update a customer, PUT
+// http://localhost:3000/api/customers/id
 router.put('/:id', function (req, res) {
     var reqid = req.params.id;
 

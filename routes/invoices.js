@@ -16,7 +16,6 @@ router.get('/', function (req, res) {
             res.send(err);
         }
 
-        console.log(invoices);
         res.json(invoices);
     });
 });

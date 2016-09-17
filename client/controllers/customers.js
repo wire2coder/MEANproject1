@@ -25,9 +25,15 @@ myApp.controller('CustomersController', ['$scope', '$http', '$location', '$route
         };
 
         $scope.addCustomer = function () {
-            console.log('ello!');
-            console.log(customer.first_name);
-            console.log(customer.last_name);
+
+            $http.post('/api/customers/', $scope.customer)
+                .success(function (response) {
+                    window.location.href = '/#/customers';
+                });
+        };
+
+        $scope.test1 = function () {
+            console.log($scope.customer);
         };
 
         $scope.getCustomerInvoices = function() {
