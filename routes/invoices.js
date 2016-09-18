@@ -59,5 +59,19 @@ router.get('/customer/:customer_id', function (req, res) {
         })
 });
 
+// hostname:3000/api/invoices/id
+// Delete an Invoice
+router.delete('/:invoice_id', function (req, res) {
+    var invoice_id = req.params.invoice_id;
+
+    Invoice.removeInvoice(invoice_id, function (err, invoices) {
+        if (err) {
+            res.send(err);
+        }
+
+        res.json(invoices);
+    });
+});
+
 module.exports = router;
 console.log('At the end of invoices.js');

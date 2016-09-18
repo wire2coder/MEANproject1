@@ -29,5 +29,13 @@ myApp.controller('InvoicesController', ['$scope', '$http', '$location','$routePa
                 }
             )
         };
+
+        $scope.deleteInvoice = function (id) {
+
+            $http.delete('/api/invoices/' + id)
+                .success(function (response) {
+                    window.location.href = '/#invoices'; //http://hostname:3000/#/invoices
+                })
+        };
     }
 ]);

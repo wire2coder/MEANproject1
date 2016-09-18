@@ -17,14 +17,14 @@
         <tbody>
             <tr ng-repeat="asdf in invoices">
                 <td> {{asdf._id}} </td>
-                <td></td>
+                <td> {{asdf.customer.first_name}} </td>
                 <td> {{asdf.service}} </td>
                 <td> {{asdf.price}} </td>
                 <td> {{asdf.status}} </td>
                 <td>
                     <a href="/#/invoices/details/{{invoice_id}}" class="btn btn-primary">Details</a>
                     <a href="/#/invoices/edit/{{invoice_id}}" class="btn btn-default">Edit</a>
-                    <button class="btn btn-danger">Delete </button>
+                    <button class="btn btn-danger" ng-click="deleteInvoice(asdf._id)">Delete </button>
                 </td>
             </tr>
         </tbody>

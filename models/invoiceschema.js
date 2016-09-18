@@ -45,6 +45,14 @@ module.exports.addInvoice = function (invoice, callback) {
     Invoice.create(add, callback);
 };
 
+// Remove Invoice
+module.exports.removeInvoice = function (id, callback) {
+    var query = {_id: id};
+
+    // Mongoose command
+    Invoice.remove(query, callback);
+};
+
 // Get customer invoices
 module.exports.getCustomerInvoices = function (customer_id, callback, limit) {
     var query = {customer: customer_id};
