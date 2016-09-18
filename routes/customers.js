@@ -20,6 +20,7 @@ router.get('/', function (req, res) {
 });
 
 // Get a single customer, GET
+// http://hostname:3000/api/customers/id
 router.get('/:id', function (req, res) {
     var reqid = req.params.id;
 
@@ -63,6 +64,7 @@ router.put('/:id', function (req, res) {
 });
 
 // Delete a customer, DELETE
+// http://hostname:3000/api/customers/id
 router.delete('/:id', function (req, res) {
     var reqid = req.params.id;
 

@@ -80,5 +80,7 @@ module.exports.updateCustomer = function (id, customer, options, callback) {
 // Remove Customer
 module.exports.removeCustomer = function (id, callback) {
     var query = {_id: id};
+
+    // Mongoose function
     Customer.remove(query, callback);
 };

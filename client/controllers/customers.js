@@ -19,7 +19,7 @@ myApp.controller('CustomersController', ['$scope', '$http', '$location', '$route
 
             $http.get('/api/customers/' + id).success(function (response) {
 
-                console.log(response);
+                //console.log(response);
                 $scope.customer = response;
             });
         };
@@ -28,22 +28,32 @@ myApp.controller('CustomersController', ['$scope', '$http', '$location', '$route
 
             $http.post('/api/customers/', $scope.customer)
                 .success(function (response) {
-                    window.location.href = '/#/customers';
+                    window.location.href = '/#customers';
                 });
         };
 
-        $scope.test1 = function () {
-            console.log($scope.customer);
-        };
-
-        $scope.getCustomerInvoices = function() {
+        $scope.getCustomerInvoices = function () {
             var id = $routeParams.id;
 
             $http.get('/api/invoices/customer/' + id)
                 .success(
-                function(response) {
+                function (response) {
                     $scope.customer_invoices = response;
                 }
             )
-        }
+        };
+
+        $scope.updateCustomer = function () {
+            $http.put('/api/customers/' + $scope.customer._id, $scope.customer)
+                .success(function (response) {
+                    window.location.href = '/#customers';
+                });
+        };
+
+        $scope.deleteCustomer = function (id) {
+            $http.delete('/api/customers/' + id)
+                .success(function (response) {
+                    window.location.href = '/#customers';
+                });
+        };
 }]);

@@ -25,6 +25,7 @@ router.get('/:id', function(req, res){
 });
 
 // Add Customer
+// localhost:3000/api/customers
 router.post('/', function(req, res){
 	var customer = req.body;
 	Customer.addCustomer(customer, function(err, customer){
