@@ -20,5 +20,14 @@ myApp.controller('InvoicesController', ['$scope', '$http', '$location','$routePa
                 }
             )
         };
+
+        $scope.getCustomers = function () {
+            $http.get('/api/customers')
+                .success(
+                function (response) {
+                    $scope.customers = response;
+                }
+            )
+        };
     }
 ]);

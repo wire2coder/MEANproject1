@@ -1,6 +1,5 @@
 <h2 class="sub-header">Add Invoice</h2>
-
-<form ng-submit="addInvoice()">
+<form ng-init="getCustomers()" ng-submit="addInvoice()">
     <div class="form-group">
         <label>Service</label>
         <input type="text" class="form-control" name="service"
@@ -8,14 +7,25 @@
     </div>
 
     <div class="form-group">
-        <input type="text" class="form-control"
-               ng-model="invoice.customer_id" name="customer_id">
+        <label>Customer</label>
+        <select class="form-control" ng-model="invoice.customer_id">
+            <option ng-repeat="asdf in customers"
+                    value="{{asdf._id}}">
+                {{asdf.first_name}} {{asdf.last_name}} ({{asdf.company}})
+            </option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Price</label>
         <input type="text" class="form-control" name="price"
                ng-model="invoice.price" placeholder="Price">
+    </div>
+
+    <div class="form-group">
+        <label>Due Date</label>
+        <input type="text" class="form-control" name="due"
+               ng-model="invoice.due" placeholder="Due Date">
     </div>
 
     <div class="form-group">
