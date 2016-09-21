@@ -20,9 +20,9 @@ myApp.controller('InvoicesController', ['$scope', '$http', '$location','$routePa
                 function (response) {
                     $scope.invoice = response;
 
-                     HERE // Fill Select ?????
-                    $scope.invoice.customer_id = response.customer._id;
-                    $scope.invoice.status = response.invoice.status;
+                     // Fill Select ???
+                    // HERE
+
                 }
             );
         };

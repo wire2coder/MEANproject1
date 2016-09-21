@@ -25,6 +25,11 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'views/invoices.html'
         })
 
+        .when('/invoices/details/:id', {
+            controller: 'InvoicesController',
+            templateUrl: 'views/invoice_details.html'
+        })
+
         .when('/invoices/add', {
             controller: 'InvoicesController',
             templateUrl: 'views/add_invoice.html'

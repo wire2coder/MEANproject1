@@ -5,8 +5,8 @@
 var express = require('express');
 router = express.Router();
 
-Customer = require('../models/customerschema.js');
-Invoice = require('../models/invoiceschema.js');
+Customer = require('../models/customer.js');
+Invoice = require('../models/invoice.js');
 
 // localhost:3000/api/invoices
 // Get Invoices
@@ -65,7 +65,7 @@ router.put('/:id', function (req, res) {
     var id = req.params.id;
     var invoice = req.body;
 
-    // invoiceschema.js
+    // invoice.js
     Invoice.updateInvoice(id, invoice, {}, function (err, invoice) {
         if (err) {
             res.send(err);

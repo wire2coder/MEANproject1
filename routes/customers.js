@@ -4,9 +4,9 @@
 var express = require('express');
 var router = express.Router();
 
-// no var in front because Customer was exported from customerschema.js
-Customer = require('../models/customerschema.js');
-Invoice = require('../models/invoiceschema.js');
+// no var in front because Customer was exported from customer.js
+Customer = require('../models/customer.js');
+Invoice = require('../models/invoice.js');
 
 // localhost:3000/api/customers
 // Get all customers, GET
@@ -36,7 +36,7 @@ router.get('/:id', function (req, res) {
 router.post('/', function (req, res) {
     var customer = req.body;
 
-    // run addCustomer in customerschema.js
+    // run addCustomer in customer.js
 
     Customer.addCustomer(customer, function (err, customer) {
         if (err) {
