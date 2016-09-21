@@ -26,7 +26,10 @@ module.exports.getInvoices = function (callback) {
 };
 
 // Get single invoice
-module.exports.getInvoice = function (callback, limit) {
+module.exports.getInvoiceById = function (id, callback) {
+
+    var query = {_id: id};
+
     // mongoose method call
     Invoice.findOne(query, callback);
 };
@@ -43,6 +46,21 @@ module.exports.addInvoice = function (invoice, callback) {
 
     // mongoose method call
     Invoice.create(add, callback);
+};
+
+// Update Invoice
+module.exports.updateInvoice = function (id, invoice, options, callback) {
+
+    var query = {_id: id};
+    var update = {
+        service: invoice.service,
+        price: invoice.price,
+        due: invoice.due,
+        status: invoice.status
+    };
+
+    // Mongoose command
+    Invoice.findOneAndUpdate(query, update, options, callback);
 };
 
 // Remove Invoice

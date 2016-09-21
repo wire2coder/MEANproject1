@@ -12,13 +12,19 @@ myApp.controller('InvoicesController', ['$scope', '$http', '$location','$routePa
             );
         };
 
-        $scope.addInvoice = function () {
-            $http.post('/api/invoices', $scope.invoice)
-                .success(
+        $scope.getInvoice = function () {
+            var id = $routeParams.id;
+
+            $http.get('/api/invoices/' + id).success(
+
                 function (response) {
-                    window.location.href = '/#/invoices';
+                    $scope.invoice = response;
+
+                     HERE // Fill Select ?????
+                    $scope.invoice.customer_id = response.customer._id;
+                    $scope.invoice.status = response.invoice.status;
                 }
-            )
+            );
         };
 
         $scope.getCustomers = function () {
@@ -28,6 +34,24 @@ myApp.controller('InvoicesController', ['$scope', '$http', '$location','$routePa
                     $scope.customers = response;
                 }
             )
+        };
+
+        $scope.addInvoice = function () {
+            $http.post('/api/invoices', $scope.invoice)
+                .success(
+                function (response) {
+                    window.location.href = '/#/invoices';
+                }
+            )
+        };
+
+        $scope.updateInvoice = function () {
+            $http.put('/api/invoices/' + $scope.invoice._id, $scope.invoice)
+                .success(function (response) {
+                    // refresh the current page
+                    window.location.href = '/#invoices';
+                });
+
         };
 
         $scope.deleteInvoice = function (id) {

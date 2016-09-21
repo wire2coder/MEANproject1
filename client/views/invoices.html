@@ -17,7 +17,7 @@
         <tbody>
             <tr ng-repeat="asdf in invoices">
                 <td> {{asdf._id}} </td>
-                <td> {{asdf.customer.first_name}} </td>
+                <td> {{asdf.customer.first_name}} {{asdf.customer.last_name}} </td>
                 <td> {{asdf.service}} </td>
                 <td> {{asdf.price}} </td>
                 <td> {{asdf.status}} </td>

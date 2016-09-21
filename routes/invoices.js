@@ -60,6 +60,23 @@ router.get('/customer/:customer_id', function (req, res) {
 });
 
 // hostname:3000/api/invoices/id
+// Update Invoice
+router.put('/:id', function (req, res) {
+    var id = req.params.id;
+    var invoice = req.body;
+
+    // invoiceschema.js
+    Invoice.updateInvoice(id, invoice, {}, function (err, invoice) {
+        if (err) {
+            res.send(err);
+        }
+
+        res.json(invoice);
+    });
+
+});
+
+// hostname:3000/api/invoices/id
 // Delete an Invoice
 router.delete('/:invoice_id', function (req, res) {
     var invoice_id = req.params.invoice_id;
